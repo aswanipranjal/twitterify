@@ -7,7 +7,7 @@ def twitterify(string):
         list_of_strings.append(string)
     
     else:
-        i = limit-len(separator)
+        i = limit - len(separator)
         while(True):
             if string[i] == " ":
                 break
