@@ -1,19 +1,26 @@
+limit = 140
+breakpoint = 137
+separator = "..."
+
 def twitterify(string):
-    list_of_strings=[]
-    if len(string)<=140:
+    list_of_strings = []
+    if len(string) <= limit:
         list_of_strings.append(string)
     else:
-        i=137
+        i = breakpoint
         while(True):
-            if string[i]==" ":
+            if string[i] == " ":
                 break
             else:
-                i-=1
-        list_of_strings.append(string[:i]+" ..")
-        if len(string[(i+1):])>138:
-            list_of_strings += twitterify("..."+string[i+1:])
+                i -= 1
+                
+        list_of_strings.append(string[:i] + separator)
+        remaining = string[i+1:]
+
+        if len(remaining) > breakpoint + 1:
+            list_of_strings += twitterify(separator+remaining)
         else:
-            list_of_strings.append("..."+string[i+1:])
+            list_of_strings.append(separator+remaining)
 
     return list_of_strings
 
