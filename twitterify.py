@@ -14,7 +14,7 @@ def twitterify(string):
             else:
                 i -= 1
 
-        list_of_strings.append(string[:i] + separator)
+        list_of_strings.append(string[:i+1] + separator)
 
         remaining = separator + string[i+1:]
 
